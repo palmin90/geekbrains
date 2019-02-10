@@ -1,0 +1,72 @@
+body {
+    min-width: 840px;
+}
+.goods {
+    display: flex;
+    justify-content: center;
+    float: left;
+    width: 70%;
+    border-right: 1px solid grey;
+}
+.good {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid lightgreen;
+    display: inline-block;
+}
+
+#deleter {
+    position: fixed;
+    top:120px;
+    left: 10px;
+    height: 20px;
+}
+.add-review {
+    margin-bottom: 10px;
+}
+.reviews {
+    text-align: center;
+}
+.good-with-review {
+    width: 20%;
+    min-width: 180px;
+}
+.review-content {
+    border: 1px grey solid;
+    padding: 5px;
+    margin: 1px;
+}
+.adminka {
+    width: 29%;
+    float: right;
+}
+.adminka:first-child {
+    size: 150px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#review-form {
+    display: none;
+}
+
+#review-form {
+    width:100%;
+    min-height:100%;
+    background-color: rgba(0,0,0,0.5);
+    overflow:hidden;
+    position:fixed;
+    top:0px;
+}
+.review-bg{
+    margin:40px auto 0px auto;
+    width:max-content;
+    height: max-content;
+    padding:10px;
+    background-color: #c5c5c5;
+}
+
+.review-user {
+    border: solid 1px grey;
+    padding: 5px;
+}

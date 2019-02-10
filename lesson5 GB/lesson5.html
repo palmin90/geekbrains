@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lesson5</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery-3.3.1.js"></script>
+    <script src="Basket.js"></script>
+    <script src="ReviewsOnGoods.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var otziv = new Review();
+
+            var basket = new Basket('basket');
+            basket.render('#basket_wrapper');
+            var idProduct = parseInt($(this).attr('data-id'));
+            $('.good_buy').on('click',function () {
+                var idProduct = parseInt($(this).attr('data-id'));
+                var price = parseInt($(this).parent().find('.product-price').text());
+                basket.add(idProduct,price);
+            });
+            $('#deleter').on('click', function () {
+                Basket.prototype.deleteItem.call();
+            });
+        });
+    </script>
+    <style>
+    </style>
+</head>
+<body>
+<div id="basket_wrapper"></div>
+<hr>
+<div class="goods">
+    <button id="deleter">Dismiss good number 126</button>
+    <div class="good-with-review id-125">
+        <div class="good">
+            <p>Монитор для ПК</p>
+            <p>Стоимость: <span class="product-price">8000</span> руб.</p>
+            <button class="good_buy" data-id="125">Купить</button>
+        </div>
+        <hr>
+        <div class="reviews">
+            <div class="reviews-head">
+                <p class="reviews-head">Отзывы о товаре</p>
+                <button class="add-review add-review-125">Добавить отзыв</button>
+            </div>
+            <div class="review-125">
+            </div>
+
+        </div>
+    </div>
+    <div class="good-with-review id-126">
+        <div class="good">
+            <p>Моноблок</p>
+            <p>Стоимость: <span class="product-price">65000</span> руб.</p>
+            <button class="good_buy" data-id="126">Купить</button>
+        </div>
+        <hr>
+        <div class="reviews">
+            <div class="reviews-head">
+                <p class="reviews-head">Отзывы о товаре</p>
+                <button class="add-review add-review-126">Добавить отзыв</button>
+            </div>
+            <div class="review-126">
+
+            </div>
+        </div>
+    </div>
+    <div class="good-with-review id-127">
+        <div class="good">
+            <p>Велик без отзывов</p>
+            <p>Стоимость: <span class="product-price">7700</span> руб.</p>
+            <button class="good_buy" data-id="127">Купить</button>
+        </div>
+        <hr>
+        <div class="reviews">
+            <div class="reviews-head">
+                <p class="reviews-head">Отзывы о товаре</p>
+                <button class="add-review add-review-127">Добавить отзыв</button>
+            </div>
+            <div class="review-127">
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+<div id="review-form">
+<div class="review-bg">
+    <form action="post" id="review-content-enter">
+        <p class="review-form__head">Оставьте отзыв о товаре</p>
+        <p>
+            <input type="text" name="name" placeholder="Иван Сергеевич Батрак" class="fio" id="name"><label
+                for="name">Укажите
+            ФИО</label>
+        </p>
+        <p>
+            <textarea name="otziv" id="full-otziv" cols="30" rows="10" placeholder="Ваше мнение"
+                      class="comment-text"></textarea>
+        </p>
+        <button type="button" id="send-review">Отправить отзыв</button>
+        <button type="reset" id="close-review__form"> Закрыть форму</button>
+    </form>
+
+</div>
+</div>
+
+<div class="adminka">
+    <p>Админка</p>
+    <div class="reviews-admin">
+
+    </div>
+</div>
+
+<!--
+    Модуль может выводить отзывы (пока из JSON-заглушки).
+Модуль может добавлять отзывы.
+Модуль может одобрять отзывы.
+Модуль может удалять отзывы.
+Модуль подчиняется следующим соглашениям.
+_______________
+Добавить отзыв
+URL
+review.add.json
+Тип запроса
+POST, asynchronous
+Передаваемые данные 
+{
+  "id_user" : 123,
+  “text” : “”
+}
+Ожидаемый ответ
+{ 
+  result: 1, 
+  userMessage: "Ваш отзыв был передан на модерацию" 
+}
+
+
+Ответ в случае системной ошибки
+{
+   result : 0,
+   error_message : “Сообщение об ошибке”
+}
+
+______________
+Одобрить отзыв
+
+URL
+review.submit.json
+Тип запроса
+POST, asynchronous
+Передаваемые данные 
+{
+  " id_comment" : 123, // ID отзыва, который одобряется
+}
+Ожидаемый ответ
+{ 
+  result: 1
+}
+
+
+Ответ в случае системной ошибки
+{
+   result : 0,
+   error_message : “Сообщение об ошибке”
+}
+________________________________
+Удалить отзыв
+
+URL
+review.delete.json
+Тип запроса
+POST, asynchronous
+Передаваемые данные 
+{
+  " id_comment" : 123, // ID отзыва, который удаляется
+}
+Ожидаемый ответ
+{ 
+  result: 1
+}
+
+
+Ответ в случае системной ошибки
+{
+   result : 0,
+   error_message : “Сообщение об ошибке”
+}
+
+-->
+
+</body>
+</html>
