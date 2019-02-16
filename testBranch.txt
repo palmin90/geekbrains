@@ -1,5 +1,5 @@
 
 print(hi;)
 print(hello;)
-print(shit.;)
+print(shit,;)
 
